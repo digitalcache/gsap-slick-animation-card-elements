@@ -36,7 +36,7 @@
                 <button class="totalFilesButton">See plans</button>
                 <svg class="percentImage" width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="backcircle" fill-rule="evenodd" clip-rule="evenodd" d="M37.5 75C58.2109 75 75 58.2104 75 37.5C75 16.7896 58.2109 0 37.5 0C16.7891 0 0 16.7896 0 37.5C0 58.2104 16.7891 75 37.5 75ZM37.5 69C54.8965 69 69 54.897 69 37.5C69 20.103 54.8965 6 37.5 6C20.1035 6 6 20.103 6 37.5C6 54.897 20.1035 69 37.5 69Z" fill="#2A3548"/>
-                    <path id="path" class="percentCircle" fill-rule="evenodd" clip-rule="evenodd" d="M69.0361 17.2002C62.4453 6.98242 51.0234 0.173828 38 0.00341797V6.00391C48.6885 6.17041 58.085 11.6606 63.6543 19.9395L69.0361 17.2002Z" fill="#8716F9"/>
+                    <path class="percentCircle" fill-rule="evenodd" clip-rule="evenodd" d="M69.0361 17.2002C62.4453 6.98242 51.0234 0.173828 38 0.00341797V6.00391C48.6885 6.17041 58.085 11.6606 63.6543 19.9395L69.0361 17.2002Z" fill="#8716F9"/>
                 </svg>
                 <div class="percentNumber">30</div>
             </div>
@@ -129,12 +129,6 @@
         }, "-=1");
         tl.to(".percentCircle", {
             opacity: 1,
-            motionPath: {
-                path: "#path",
-                align: "#path",
-                alignOrigin: [0.5,0.5],
-                autoRotate: true,
-            },
             stagger: 0.1,
         }, "-=1");
         tl.to(".percentNumber", {
