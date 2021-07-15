@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Full Page Animation</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <button>Enter</button>
+    <div class="overlay">
+        <a href="#" class="exit"><img src="images/close.svg" alt="Exit navigation"></a>
+        <div class="menu">
+            <div class="article-views">
+                <div class="viewCount">478</div>
+                <div class="article-desc">Article views</div>
+                <img class="articleviewimage" src="/images/chart.svg"/>
+            </div>
+            <div class="month-stats">
+                <div class="cardTitle">
+                    <span>This month </span>
+                    <img src="images/menu.svg">
+                </div>
+                <div class="grid">
+                    <div class="gridNumber grid1">26</div>
+                    <div class="gridNumber grid2">3</div>
+                    <div class="gridNumber grid3">7</div>
+                    <div class="article-desc1 grid1">Articles</div>
+                    <div class="article-desc1 grid2">Press releases</div>
+                    <div class="article-desc1 grid3">Interviews</div>
+                </div>
+            </div>
+            <div class="totalFiles">
+                <div class="cardTitle1">Total Files</div>
+                <p class="cardDesc">Upgrade your account to<br> access all your files.</p>
+                <button class="totalFilesButton">See plans</button>
+                <svg class="percentImage" width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="backcircle" fill-rule="evenodd" clip-rule="evenodd" d="M37.5 75C58.2109 75 75 58.2104 75 37.5C75 16.7896 58.2109 0 37.5 0C16.7891 0 0 16.7896 0 37.5C0 58.2104 16.7891 75 37.5 75ZM37.5 69C54.8965 69 69 54.897 69 37.5C69 20.103 54.8965 6 37.5 6C20.1035 6 6 20.103 6 37.5C6 54.897 20.1035 69 37.5 69Z" fill="#2A3548"/>
+                    <path id="path" class="percentCircle" fill-rule="evenodd" clip-rule="evenodd" d="M69.0361 17.2002C62.4453 6.98242 51.0234 0.173828 38 0.00341797V6.00391C48.6885 6.17041 58.085 11.6606 63.6543 19.9395L69.0361 17.2002Z" fill="#8716F9"/>
+                </svg>
+                <div class="percentNumber">30</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+    <script>
+        const button = document.querySelector('button');
+        const overlay = document.querySelector('.overlay');
+        const exit = document.querySelector('.exit');
+        var tl = gsap.timeline({defaults: { duration: 1.2, ease: Back.easeOut.config(2)}});
+        tl.paused(true);
+        tl.to(".overlay", {
+            clipPath: 'circle(100%)'
+        });
+
+        // Article Views
+        tl.to(".article-views", {
+            opacity: 1,
+            y: "30px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".viewCount", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".article-desc", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".articleviewimage", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+
+        // Monthly Stats
+        tl.to(".month-stats", {
+            opacity: 1,
+            y: "30px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".cardTitle", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".grid1", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".grid2", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".grid3", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+
+        // Total Files
+        tl.to(".totalFiles", {
+            opacity: 1,
+            y: "30px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".cardTitle1", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".cardDesc", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".totalFilesButton", {
+            opacity: 1,
+            x: "0px",
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".backcircle", {
+            opacity: 1,
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".percentCircle", {
+            opacity: 1,
+            motionPath: {
+                path: "#path",
+                align: "#path",
+                alignOrigin: [0.5,0.5],
+                autoRotate: true,
+            },
+            stagger: 0.1,
+        }, "-=1");
+        tl.to(".percentNumber", {
+            opacity: 1,
+            stagger: 0.1,
+        }, "-=1");
+
+        button.addEventListener('click', () => {
+            tl.play();
+        })
+        exit.addEventListener('click', () => {
+            tl.reverse(.7);
+        });
+
+    </script>
+</body>
+</html>
